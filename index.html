@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+  <meta name="viewport" content="width=1366, height=768, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta charset="UTF-8" />
   <title>충북대 주변 지도</title>
   <style>
@@ -23,8 +24,8 @@
 
     .page-inner {
       position:relative;
-      width:100%;
-      height:100%;
+      width:100%;/* 고정 */
+      height:100%;/* 고정 */
       max-width:1366px;
       max-height:768px;
       margin:auto;
@@ -33,7 +34,7 @@
     .page-inner img.bg {
       width:100%;
       height:100%;
-      object-fit:cover;
+      object-fit:fill; /* 이미지를 캔버스에 꽉 채우기 */
       display:block;
     }
 
@@ -45,7 +46,7 @@
     .btn-area button{
       width:100%;
       height:100%;
-      opacity:0;
+      opacity:0;            
       cursor:pointer;
     }
   </style>
@@ -66,37 +67,37 @@
     <img src="page1-category.png" alt="카테고리" class="bg">
 
     <!-- 카페 버튼 -> 16번 페이지 -->
-    <div class="btn-area" style="left:410px; top:60px; width:350px; height:230px;">
+    <div class="btn-area" style="left:410px; top:42px; width:350px; height:190px;">
       <button onclick="showPage('page16')"></button>
     </div>
 
     <!-- 학교 주변 맛집 버튼 -> 3번 페이지 -->
-    <div class="btn-area" style="left:760px; top:60px; width:500px; height:230px;">
+    <div class="btn-area" style="left:780px; top:42px; width:500px; height:190px;">
       <button onclick="showPage('page3')"></button>
     </div>
 
     <!-- 학교 출입구 버튼 -> 2번 페이지 -->
-    <div class="btn-area" style="left:100px; top:360px; width:260px; height:330px;">
+    <div class="btn-area" style="left:100px; top:230px; width:260px; height:380px;">
       <button onclick="showPage('page2')"></button>
     </div>
 
     <!-- 인쇄소 버튼 -> 8번 페이지 -->
-    <div class="btn-area" style="left:410px; top:360px; width:350px; height:230px;">
+    <div class="btn-area" style="left:410px; top:230px; width:350px; height:190px;">
       <button onclick="showPage('page8')"></button>
     </div>
 
     <!-- 편의시설 버튼 -> 11번 페이지 (새로 추가) -->
-    <div class="btn-area" style="left:780px; top:360px; width:480px; height:230px;">
+    <div class="btn-area" style="left:1070px; top:230px; width:220px; height:370px;">
       <button onclick="showPage('page11')"></button>
     </div>
 
     <!-- 놀이시설 버튼 -> 14번 페이지 (새로 추가) -->
-    <div class="btn-area" style="left:760px; top:610px; width:500px; height:150px;">
+    <div class="btn-area" style="left:780px; top:230px; width:220px; height:370px;">
       <button onclick="showPage('page14')"></button>
     </div>
 
     <!-- 비밀이에요! 버튼 -> 17번 페이지 -->
-    <div class="btn-area" style="left:410px; top:610px; width:350px; height:150px;">
+    <div class="btn-area" style="left:410px; top:450px; width:350px; height:150px;">
       <button onclick="showPage('page17')"></button>
     </div>
   </div>
@@ -129,15 +130,15 @@
       <button onclick="showPage('page4')"></button>
     </div>
     <!-- 일식 -> 5번 페이지 -->
-    <div class="btn-area" style="left:380px; top:270px; width:260px; height:330px;">
+    <div class="btn-area" style="left:390px; top:270px; width:260px; height:330px;">
       <button onclick="showPage('page5')"></button>
     </div>
     <!-- 중식 -> 6번 페이지 -->
-    <div class="btn-area" style="left:660px; top:270px; width:260px; height:330px;">
+    <div class="btn-area" style="left:690px; top:270px; width:260px; height:330px;">
       <button onclick="showPage('page6')"></button>
     </div>
     <!-- 양식 -> 7번 페이지 -->
-    <div class="btn-area" style="left:940px; top:270px; width:260px; height:330px;">
+    <div class="btn-area" style="left:990px; top:270px; width:260px; height:330px;">
       <button onclick="showPage('page7')"></button>
     </div>
   </div>
@@ -323,7 +324,7 @@
     <img src="page17-secret.png" alt="비밀이에요" class="bg">
 
     <!-- 뒤로: 첫 페이지 -->
-    <div class="btn-area" style="left:100px; top:80px; width:260px; height:140px;">
+    <div class="btn-area" style="left:60px; top:90px; width:280px; height:200px;">
       <button onclick="showPage('page1')"></button>
     </div>
   </div>
