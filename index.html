@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>충북대 주변 지도</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Noto Sans KR", system-ui, sans-serif;
+      background:#00457a;
+      height:100vh;
+      overflow:hidden;
+    }
+    .page {
+      position:absolute;
+      inset:0;
+      display:none;
+      justify-content:center;
+      align-items:center;
+      background:#00457a;
+    }
+    .page.active { display:flex; }
+
+    .page-inner {
+      position:relative;
+      width:100%;
+      height:100%;
+      max-width:1366px;
+      max-height:768px;
+      margin:auto;
+      overflow:hidden;
+    }
+    .page-inner img.bg {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    /* 버튼 공통 (투명 클릭 영역) */
+    .btn-area {
+      position:absolute;
+      cursor:pointer;
+    }
+    .btn-area button{
+      width:100%;
+      height:100%;
+      opacity:0;
+      cursor:pointer;
+    }
+  </style>
+
+  <script>
+    function showPage(id) {
+      document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+    }
+  </script>
+</head>
+<body>
+
+<!-- 1. 첫 페이지 (카테고리) -->
+<div class="page active" id="page1">
+  <div class="page-inner">
+    <!-- 첫 번째 이미지 -->
+    <img src="page1-category.png" alt="카테고리" class="bg">
+
+    <!-- 카페 버튼 -> 16번 페이지 -->
+    <div class="btn-area" style="left:410px; top:60px; width:350px; height:230px;">
+      <button onclick="showPage('page16')"></button>
+    </div>
+
+    <!-- 학교 주변 맛집 버튼 -> 3번 페이지 -->
+    <div class="btn-area" style="left:760px; top:60px; width:500px; height:230px;">
+      <button onclick="showPage('page3')"></button>
+    </div>
+
+    <!-- 학교 출입구 버튼 -> 2번 페이지 -->
+    <div class="btn-area" style="left:100px; top:360px; width:260px; height:330px;">
+      <button onclick="showPage('page2')"></button>
+    </div>
+
+    <!-- 인쇄소 버튼 -> 8번 페이지 -->
+    <div class="btn-area" style="left:410px; top:360px; width:350px; height:230px;">
+      <button onclick="showPage('page8')"></button>
+    </div>
+
+    <!-- 편의시설 버튼 -> 11번 페이지 (새로 추가) -->
+    <div class="btn-area" style="left:780px; top:360px; width:480px; height:230px;">
+      <button onclick="showPage('page11')"></button>
+    </div>
+
+    <!-- 놀이시설 버튼 -> 14번 페이지 (새로 추가) -->
+    <div class="btn-area" style="left:760px; top:610px; width:500px; height:150px;">
+      <button onclick="showPage('page14')"></button>
+    </div>
+
+    <!-- 비밀이에요! 버튼 -> 17번 페이지 -->
+    <div class="btn-area" style="left:410px; top:610px; width:350px; height:150px;">
+      <button onclick="showPage('page17')"></button>
+    </div>
+  </div>
+</div>
+
+<!-- 2. 학교 출입구 지도 -->
+<div class="page" id="page2">
+  <div class="page-inner">
+    <img src="page2-gate.png" alt="학교 출입구" class="bg">
+
+    <!-- 뒤로: 첫 페이지 -->
+    <div class="btn-area" style="left:100px; top:80px; width:260px; height:140px;">
+      <button onclick="showPage('page1')"></button>
+    </div>
+  </div>
+</div>
+
+<!-- 3. 학교 주변 맛집 - 한식/일식/중식/양식 선택 -->
+<div class="page" id="page3">
+  <div class="page-inner">
+    <img src="page3-food-category.png" alt="맛집 카테고리" class="bg">
+
+    <!-- 뒤로: 첫 페이지 -->
+    <div class="btn-area" style="left:100px; top:80px; width:260px; height:140px;">
+      <button onclick="showPage('page1')"></button>
+    </div>
+
+    <!-- 한식 -> 4번 페이지 -->
+    <div class="btn-area" style="left:100px; top:270px; width:260px; height:330px;">
+      <button onclick="showPage('page4')"></button>
+    </div>
+    <!-- 일식 -> 5번 페이지 -->
+    <div class="btn-area" style="left:380px; top:270px; width:260px; height:330px;">
+      <button onclick="showPage('page5')"></button>
+    </div>
+    <!-- 중식 -> 6번 페이지 -->
+    <div class="btn-area" style="left:660px; top:270px; width:260px; height:330px;">
+      <button onclick="showPage('page6')"></button>
+    </div>
+    <!-- 양식 -> 7번 페이지 -->
+    <div class="btn-area" style="left:940px; top:270px; width:260px; height:330px;">
+      <button onclick="showPage('page7')"></button>
+    </div>
+  </div>
+</div>
+
+<!-- 4. 한식 지도 -->
+<div class="page" id="page4">
+  <div class="page-inner">
+    <img src="page4-korean-map.png" alt="한식 지도" class="bg">
+    <div class="btn-area" style="left:100px; top:80px; width:260px; height:140px;">
+      <button onclick="showPage('page3')"></button>
+    </div>
+  </div>
+</div>
+
+<!-- 5. 일식 지도 -->
+<div class="page" id="page5">
+  <div class="page-inner">
+    <img src="page5-japanese-map.png" alt="일식 지도" class="bg">
+    <div class="btn-area" style="left:100px; top:80px; width:260px; height:140px;">
+      <button onclick="showPage('page3')"></button>
+    </div>
+  </div>
+</div>
+
+<!-- 6. 중식 지도 -->
+<div class="page" id="page6">
+  <div class="page-inner">
+    <img src="page6-chinese-map.png" alt="중식 지도" class="bg">
+    <div class="btn-area" style="left:100px; top:80px; width:260px; height:140px;">
+      <button onclick="showPage('page3')"></button>
+    </div>
+  </div>
+</div>
+
+<!-- 7. 양식 지도 -->
+<div class="page" id="page7">
+  <div class="page-inner">
+    <img src="page7-western-map.png" alt="양식 지도" class="bg">
+    <div class="btn-area" style="left:100px; top:80px; width:260px; height:140px;">
+      <button onclick="showPage('page3')"></button>
+    </div>
+  </div>
+</div>
+
+<!-- 8. 인쇄소 카테고리 -->
+<div class="page" id="page8">
+  <div class="page-inner">
+    <img src="page8-print-category.png" alt="인쇄소 카테고리" class="bg">
+
+    <!-- 뒤로 : 첫 페이지 -->
+    <div class="btn-area" style="left:100px; top:80px; width:260px; height:140px;">
+      <button onclick="showPage('page1')"></button>
+    </div>
+
+    <!-- 인쇄 가능한 곳 -> 9번 -->
+    <div class="btn-area" style="left:100px; top:260px; width:520px; height:160px;">
+      <button onclick="showPage('page9')"></button>
+    </div>
+
+    <!-- 제본까지 가능한 곳 -> 10번 -->
+    <div class="btn-area" style="left:100px; top:450px; width:520px; height:160px;">
+      <button onclick="showPage('page10')"></button>
+    </div>
+  </div>
+</div>
+
+<!-- 9. 인쇄만 가능한 곳 지도 -->
+<div class="page" id="page9">
+  <div class="page-inner">
+    <img src="page9-print-only-map.png" alt="인쇄만" class="bg">
+    <div class="btn-area" style="left:100px; top:80px; width:260px; height:140px;">
+      <button onclick="showPage('page8')"></button>
+    </div>
+  </div>
+</div>
+
+<!-- 10. 제본까지 가능한 곳 지도 -->
+<div class="page" id="page10">
+  <div class="page-inner">
+    <img src="page10-print-bind-map.png" alt="제본까지" class="bg">
+    <div class="btn-area" style="left:100px; top:80px; width:260px; height:140px;">
+      <button onclick="showPage('page8')"></button>
+    </div>
+  </div>
+</div>
+
+<!-- 11. 편의시설 - 쿱스켓 / 세탁소 선택 -->
+<div class="page" id="page11">
+  <div class="page-inner">
+    <img src="KakaoTalk_20251129_175244469.png" alt="편의시설" class="bg">
+
+    <!-- 뒤로 : 첫 페이지 -->
+    <div class="btn-area" style="left:100px; top:80px; width:260px; height:140px;">
+      <button onclick="showPage('page1')"></button>
+    </div>
+
+    <!-- 쿱스켓 버튼 -> 12번 페이지 -->
+    <div class="btn-area" style="left:100px; top:260px; width:520px; height:330px;">
+      <button onclick="showPage('page12')"></button>
+    </div>
+
+    <!-- 세탁소 버튼 -> 13번 페이지 -->
+    <div class="btn-area" style="left:680px; top:260px; width:520px; height:330px;">
+      <button onclick="showPage('page13')"></button>
+    </div>
+  </div>
+</div>
+
+<!-- 12. 쿱스켓 지도 -->
+<div class="page" id="page12">
+  <div class="page-inner">
+    <img src="page12-coopsket-map.png" alt="쿱스켓 지도" class="bg">
+
+    <!-- 뒤로 : 편의시설 -->
+    <div class="btn-area" style="left:100px; top:80px; width:260px; height:140px;">
+      <button onclick="showPage('page11')"></button>
+    </div>
+  </div>
+</div>
+
+<!-- 13. 세탁소 지도 -->
+<div class="page" id="page13">
+  <div class="page-inner">
+    <img src="page13-laundry-map.png" alt="세탁소 지도" class="bg">
+
+    <!-- 뒤로 : 편의시설 -->
+    <div class="btn-area" style="left:100px; top:80px; width:260px; height:140px;">
+      <button onclick="showPage('page11')"></button>
+    </div>
+  </div>
+</div>
+
+<!-- 14. 놀이시설 - 포토부스 / 노래방&춤연습실 선택 -->
+<div class="page" id="page14">
+  <div class="page-inner">
+    <img src="KakaoTalk_20251129_175244469_01.png" alt="놀이시설" class="bg">
+
+    <!-- 뒤로 : 첫 페이지 -->
+    <div class="btn-area" style="left:100px; top:80px; width:260px; height:140px;">
+      <button onclick="showPage('page1')"></button>
+    </div>
+
+    <!-- 포토부스 버튼 -> 15번 페이지 -->
+    <div class="btn-area" style="left:100px; top:260px; width:520px; height:330px;">
+      <button onclick="showPage('page15')"></button>
+    </div>
+
+    <!-- 노래방 & 춤연습실 버튼 -> 18번 페이지 -->
+    <div class="btn-area" style="left:680px; top:260px; width:520px; height:330px;">
+      <button onclick="showPage('page18')"></button>
+    </div>
+  </div>
+</div>
+
+<!-- 15. 포토부스 지도 -->
+<div class="page" id="page15">
+  <div class="page-inner">
+    <img src="page14-photobooth-map.png" alt="포토부스 지도" class="bg">
+
+    <!-- 뒤로 : 놀이시설 -->
+    <div class="btn-area" style="left:100px; top:80px; width:260px; height:140px;">
+      <button onclick="showPage('page14')"></button>
+    </div>
+  </div>
+</div>
+
+<!-- 16. 카페 지도 -->
+<div class="page" id="page16">
+  <div class="page-inner">
+    <img src="page16-cafe-map.png" alt="카페" class="bg">
+
+    <!-- 뒤로: 첫 페이지 -->
+    <div class="btn-area" style="left:100px; top:80px; width:260px; height:140px;">
+      <button onclick="showPage('page1')"></button>
+    </div>
+  </div>
+</div>
+
+<!-- 17. 비밀이에요! 페이지 -->
+<div class="page" id="page17">
+  <div class="page-inner">
+    <img src="page17-secret.png" alt="비밀이에요" class="bg">
+
+    <!-- 뒤로: 첫 페이지 -->
+    <div class="btn-area" style="left:100px; top:80px; width:260px; height:140px;">
+      <button onclick="showPage('page1')"></button>
+    </div>
+  </div>
+</div>
+
+<!-- 18. 노래방 & 춤연습실 지도 -->
+<div class="page" id="page18">
+  <div class="page-inner">
+    <img src="KakaoTalk_20251129_175244469_02.png" alt="노래방 & 춤연습실 지도" class="bg">
+
+    <!-- 뒤로 : 놀이시설 -->
+    <div class="btn-area" style="left:100px; top:80px; width:260px; height:140px;">
+      <button onclick="showPage('page14')"></button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
